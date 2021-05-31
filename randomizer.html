@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Civiliation V Nation Randomizer</title>
+  <script src="/civ/randomizer.js"></script>
+  <link href="/civ/randomizer.css" rel="stylesheet">
+  </head>
+<center>
+<h1
+	<span class='noIbar'>Fruitstrike's Fabulous Civ 5 Drafter</span>
+</h1>
+<ul id="results"></ul>
+<form action="" method="post" name="countries"/>
+   <label class='noIbar'>
+		<span>Select Number of Players:</span>
+		<select name="num_players">
+		  <option value='1'>1 Player</option>
+		  <option value='2'>2 Players</option>
+		  <option value='3'>3 Players</option>
+		  <option value='4'>4 Players</option>
+		  <option value='5'>5 Players</option>
+		  <option value='6' selected='selected'>6 Players</option>
+		  <option value='7'>7 Players</option>
+		  <option value='8'>8 Players</option>
+		  <option value='9'>9 Players</option>
+		  <option value='10'>10 Players</option>
+		  <option value='11'>11 Players</option>
+		  <option value='12'>12 Players</option>
+		</select>
+   </label>
+   
+   <label class='noIbar'>
+	   <span>Select Number of Civs to Assign to Each Player:</span>
+	   <select name="num_civs_to_assign">
+		  <option value='1'>1 Random Civ</option>
+		  <option value='2'>2 Random Civs</option>
+		  <option value='3' selected='selected'>3 Random Civs</option>
+		  <option value='4'>4 Random Civs</option>
+		  <option value='5'>5 Random Civs</option>
+		  <option value='6'>6 Random Civs</option>
+		  <option value='7'>7 Random Civs</option>
+		  <option value='8'>8 Random Civs</option>
+		  <option value='9'>9 Random Civs</option>
+		  <option value='10'>10 Random Civs</option>
+	   </select>
+   </label>
+   
+   <p>Quick Ban Filters:</p>
+   
+   <input type='button' id='button_ban_venice_only' value='Venice Only' onclick="toggleStrikeout('Venice')"/>
+   <input type='button' id='button_ban_venice_only' value='None' onclick="setStrikeout('America', false);setStrikeout('Arabia', false);setStrikeout('Assyria', false);setStrikeout('Austria', false);setStrikeout('Aztec', false);setStrikeout('Babylon', false);setStrikeout('Brazil', false);setStrikeout('Byzantium', false);setStrikeout('Carthage', false);setStrikeout('Celts', false);setStrikeout('China', false);setStrikeout('Denmark', false);setStrikeout('Egypt', false);setStrikeout('England', false);setStrikeout('Ethiopia', false);setStrikeout('France', false);setStrikeout('Germany', false);setStrikeout('Greece', false);setStrikeout('Huns', false);setStrikeout('Inca', false);setStrikeout('India', false);setStrikeout('Indonesia', false);setStrikeout('Iroquois', false);setStrikeout('Japan', false);setStrikeout('Korea', false);setStrikeout('Maya', false);setStrikeout('Mongolia', false);setStrikeout('Morocco', false);setStrikeout('Netherlands', false);setStrikeout('Ottomans', false);setStrikeout('Persia', false);setStrikeout('Poland', false);setStrikeout('Polynesia', false);setStrikeout('Portugal', false);setStrikeout('Rome', false);setStrikeout('Russia', false);setStrikeout('Shoshone', false);setStrikeout('Siam', false);setStrikeout('Songhai', false);setStrikeout('Spain', false);setStrikeout('Sweden', false);setStrikeout('Venice', false);setStrikeout('Zulu', false);"/>
+   <input type='button' id='button_ban_venice_only' value='All' onclick="setStrikeout('America', true);setStrikeout('Arabia', true);setStrikeout('Assyria', true);setStrikeout('Austria', true);setStrikeout('Aztec', true);setStrikeout('Babylon', true);setStrikeout('Brazil', true);setStrikeout('Byzantium', true);setStrikeout('Carthage', true);setStrikeout('Celts', true);setStrikeout('China', true);setStrikeout('Denmark', true);setStrikeout('Egypt', true);setStrikeout('England', true);setStrikeout('Ethiopia', true);setStrikeout('France', true);setStrikeout('Germany', true);setStrikeout('Greece', true);setStrikeout('Huns', true);setStrikeout('Inca', true);setStrikeout('India', true);setStrikeout('Indonesia', true);setStrikeout('Iroquois', true);setStrikeout('Japan', true);setStrikeout('Korea', true);setStrikeout('Maya', true);setStrikeout('Mongolia', true);setStrikeout('Morocco', true);setStrikeout('Netherlands', true);setStrikeout('Ottomans', true);setStrikeout('Persia', true);setStrikeout('Poland', true);setStrikeout('Polynesia', true);setStrikeout('Portugal', true);setStrikeout('Rome', true);setStrikeout('Russia', true);setStrikeout('Shoshone', true);setStrikeout('Siam', true);setStrikeout('Songhai', true);setStrikeout('Spain', true);setStrikeout('Sweden', true);setStrikeout('Venice', true);setStrikeout('Zulu', true);"/>
+   <input type='button' id='button_ban_venice_only' value='Inverse' onclick="toggleStrikeout()">
+   
+   <table frame="box" bgColor='#FFFFFF' cellspacing='5'>
+      <tr>
+         <td colspan="5" align='center' bgColor='#FFFFFF'><b><span class='noIbar'>ALLOWED/BANNED CIVILIZATIONS</span></b></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_America'><input id='checkbox_America' type='checkbox' name='allowed_civs[]' style='display:none' value='America' onclick=updateStrikeout('America') checked='true'><label for='checkbox_America'><img src='http://www.georgeskleres.com/civ5/img/America.png' width='16' height='16' /></label> <span id='span_checkbox_America'><label for='checkbox_America'>America</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Arabia'><input id='checkbox_Arabia' type='checkbox' name='allowed_civs[]' style='display:none' value='Arabia' onclick=updateStrikeout('Arabia') checked='true'><label for='checkbox_Arabia'><img src='http://www.georgeskleres.com/civ5/img/Arabia.png' width='16' height='16' /></label> <span id='span_checkbox_Arabia'><label for='checkbox_Arabia'>Arabia</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Assyria'><input id='checkbox_Assyria' type='checkbox' name='allowed_civs[]' style='display:none' value='Assyria' onclick=updateStrikeout('Assyria') checked='true'><label for='checkbox_Assyria'><img src='http://www.georgeskleres.com/civ5/img/Assyria.png' width='16' height='16' /></label> <span id='span_checkbox_Assyria'><label for='checkbox_Assyria'>Assyria</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Austria'><input id='checkbox_Austria' type='checkbox' name='allowed_civs[]' style='display:none' value='Austria' onclick=updateStrikeout('Austria') checked='true'><label for='checkbox_Austria'><img src='http://www.georgeskleres.com/civ5/img/Austria.png' width='16' height='16' /></label> <span id='span_checkbox_Austria'><label for='checkbox_Austria'>Austria</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Aztec'><input id='checkbox_Aztec' type='checkbox' name='allowed_civs[]' style='display:none' value='Aztec' onclick=updateStrikeout('Aztec') checked='true'><label for='checkbox_Aztec'><img src='http://www.georgeskleres.com/civ5/img/Aztec.png' width='16' height='16' /></label> <span id='span_checkbox_Aztec'><label for='checkbox_Aztec'>Aztec</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Babylon'><input id='checkbox_Babylon' type='checkbox' name='allowed_civs[]' style='display:none' value='Babylon' onclick=updateStrikeout('Babylon') checked='true'><label for='checkbox_Babylon'><img src='http://www.georgeskleres.com/civ5/img/Babylon.png' width='16' height='16' /></label> <span id='span_checkbox_Babylon'><label for='checkbox_Babylon'>Babylon</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Brazil'><input id='checkbox_Brazil' type='checkbox' name='allowed_civs[]' style='display:none' value='Brazil' onclick=updateStrikeout('Brazil') checked='true'><label for='checkbox_Brazil'><img src='http://www.georgeskleres.com/civ5/img/Brazil.png' width='16' height='16' /></label> <span id='span_checkbox_Brazil'><label for='checkbox_Brazil'>Brazil</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Byzantium'><input id='checkbox_Byzantium' type='checkbox' name='allowed_civs[]' style='display:none' value='Byzantium' onclick=updateStrikeout('Byzantium') checked='true'><label for='checkbox_Byzantium'><img src='http://www.georgeskleres.com/civ5/img/Byzantium.png' width='16' height='16' /></label> <span id='span_checkbox_Byzantium'><label for='checkbox_Byzantium'>Byzantium</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Carthage'><input id='checkbox_Carthage' type='checkbox' name='allowed_civs[]' style='display:none' value='Carthage' onclick=updateStrikeout('Carthage') checked='true'><label for='checkbox_Carthage'><img src='http://www.georgeskleres.com/civ5/img/Carthage.png' width='16' height='16' /></label> <span id='span_checkbox_Carthage'><label for='checkbox_Carthage'>Carthage</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Celts'><input id='checkbox_Celts' type='checkbox' name='allowed_civs[]' style='display:none' value='Celts' onclick=updateStrikeout('Celts') checked='true'><label for='checkbox_Celts'><img src='http://www.georgeskleres.com/civ5/img/Celts.png' width='16' height='16' /></label> <span id='span_checkbox_Celts'><label for='checkbox_Celts'>Celts</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_China'><input id='checkbox_China' type='checkbox' name='allowed_civs[]' style='display:none' value='China' onclick=updateStrikeout('China') checked='true'><label for='checkbox_China'><img src='http://www.georgeskleres.com/civ5/img/China.png' width='16' height='16' /></label> <span id='span_checkbox_China'><label for='checkbox_China'>China</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Denmark'><input id='checkbox_Denmark' type='checkbox' name='allowed_civs[]' style='display:none' value='Denmark' onclick=updateStrikeout('Denmark') checked='true'><label for='checkbox_Denmark'><img src='http://www.georgeskleres.com/civ5/img/Denmark.png' width='16' height='16' /></label> <span id='span_checkbox_Denmark'><label for='checkbox_Denmark'>Denmark</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Egypt'><input id='checkbox_Egypt' type='checkbox' name='allowed_civs[]' style='display:none' value='Egypt' onclick=updateStrikeout('Egypt') checked='true'><label for='checkbox_Egypt'><img src='http://www.georgeskleres.com/civ5/img/Egypt.png' width='16' height='16' /></label> <span id='span_checkbox_Egypt'><label for='checkbox_Egypt'>Egypt</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_England'><input id='checkbox_England' type='checkbox' name='allowed_civs[]' style='display:none' value='England' onclick=updateStrikeout('England') checked='true'><label for='checkbox_England'><img src='http://www.georgeskleres.com/civ5/img/England.png' width='16' height='16' /></label> <span id='span_checkbox_England'><label for='checkbox_England'>England</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Ethiopia'><input id='checkbox_Ethiopia' type='checkbox' name='allowed_civs[]' style='display:none' value='Ethiopia' onclick=updateStrikeout('Ethiopia') checked='true'><label for='checkbox_Ethiopia'><img src='http://www.georgeskleres.com/civ5/img/Ethiopia.png' width='16' height='16' /></label> <span id='span_checkbox_Ethiopia'><label for='checkbox_Ethiopia'>Ethiopia</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_France'><input id='checkbox_France' type='checkbox' name='allowed_civs[]' style='display:none' value='France' onclick=updateStrikeout('France') checked='true'><label for='checkbox_France'><img src='http://www.georgeskleres.com/civ5/img/France.png' width='16' height='16' /></label> <span id='span_checkbox_France'><label for='checkbox_France'>France</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Germany'><input id='checkbox_Germany' type='checkbox' name='allowed_civs[]' style='display:none' value='Germany' onclick=updateStrikeout('Germany') checked='true'><label for='checkbox_Germany'><img src='http://www.georgeskleres.com/civ5/img/Germany.png' width='16' height='16' /></label> <span id='span_checkbox_Germany'><label for='checkbox_Germany'>Germany</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Greece'><input id='checkbox_Greece' type='checkbox' name='allowed_civs[]' style='display:none' value='Greece' onclick=updateStrikeout('Greece') checked='true'><label for='checkbox_Greece'><img src='http://www.georgeskleres.com/civ5/img/Greece.png' width='16' height='16' /></label> <span id='span_checkbox_Greece'><label for='checkbox_Greece'>Greece</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Huns'><input id='checkbox_Huns' type='checkbox' name='allowed_civs[]' style='display:none' value='Huns' onclick=updateStrikeout('Huns') checked='true'><label for='checkbox_Huns'><img src='http://www.georgeskleres.com/civ5/img/Huns.png' width='16' height='16' /></label> <span id='span_checkbox_Huns'><label for='checkbox_Huns'>Huns</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Inca'><input id='checkbox_Inca' type='checkbox' name='allowed_civs[]' style='display:none' value='Inca' onclick=updateStrikeout('Inca') checked='true'><label for='checkbox_Inca'><img src='http://www.georgeskleres.com/civ5/img/Inca.png' width='16' height='16' /></label> <span id='span_checkbox_Inca'><label for='checkbox_Inca'>Inca</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_India'><input id='checkbox_India' type='checkbox' name='allowed_civs[]' style='display:none' value='India' onclick=updateStrikeout('India') checked='true'><label for='checkbox_India'><img src='http://www.georgeskleres.com/civ5/img/India.png' width='16' height='16' /></label> <span id='span_checkbox_India'><label for='checkbox_India'>India</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Indonesia'><input id='checkbox_Indonesia' type='checkbox' name='allowed_civs[]' style='display:none' value='Indonesia' onclick=updateStrikeout('Indonesia') checked='true'><label for='checkbox_Indonesia'><img src='http://www.georgeskleres.com/civ5/img/Indonesia.png' width='16' height='16' /></label> <span id='span_checkbox_Indonesia'><label for='checkbox_Indonesia'>Indonesia</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Iroquois'><input id='checkbox_Iroquois' type='checkbox' name='allowed_civs[]' style='display:none' value='Iroquois' onclick=updateStrikeout('Iroquois') checked='true'><label for='checkbox_Iroquois'><img src='http://www.georgeskleres.com/civ5/img/Iroquois.png' width='16' height='16' /></label> <span id='span_checkbox_Iroquois'><label for='checkbox_Iroquois'>Iroquois</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Japan'><input id='checkbox_Japan' type='checkbox' name='allowed_civs[]' style='display:none' value='Japan' onclick=updateStrikeout('Japan') checked='true'><label for='checkbox_Japan'><img src='http://www.georgeskleres.com/civ5/img/Japan.png' width='16' height='16' /></label> <span id='span_checkbox_Japan'><label for='checkbox_Japan'>Japan</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Korea'><input id='checkbox_Korea' type='checkbox' name='allowed_civs[]' style='display:none' value='Korea' onclick=updateStrikeout('Korea') checked='true'><label for='checkbox_Korea'><img src='http://www.georgeskleres.com/civ5/img/Korea.png' width='16' height='16' /></label> <span id='span_checkbox_Korea'><label for='checkbox_Korea'>Korea</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Maya'><input id='checkbox_Maya' type='checkbox' name='allowed_civs[]' style='display:none' value='Maya' onclick=updateStrikeout('Maya') checked='true'><label for='checkbox_Maya'><img src='http://www.georgeskleres.com/civ5/img/Maya.png' width='16' height='16' /></label> <span id='span_checkbox_Maya'><label for='checkbox_Maya'>Maya</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Mongolia'><input id='checkbox_Mongolia' type='checkbox' name='allowed_civs[]' style='display:none' value='Mongolia' onclick=updateStrikeout('Mongolia') checked='true'><label for='checkbox_Mongolia'><img src='http://www.georgeskleres.com/civ5/img/Mongolia.png' width='16' height='16' /></label> <span id='span_checkbox_Mongolia'><label for='checkbox_Mongolia'>Mongolia</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Morocco'><input id='checkbox_Morocco' type='checkbox' name='allowed_civs[]' style='display:none' value='Morocco' onclick=updateStrikeout('Morocco') checked='true'><label for='checkbox_Morocco'><img src='http://www.georgeskleres.com/civ5/img/Morocco.png' width='16' height='16' /></label> <span id='span_checkbox_Morocco'><label for='checkbox_Morocco'>Morocco</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Netherlands'><input id='checkbox_Netherlands' type='checkbox' name='allowed_civs[]' style='display:none' value='Netherlands' onclick=updateStrikeout('Netherlands') checked='true'><label for='checkbox_Netherlands'><img src='http://www.georgeskleres.com/civ5/img/Netherlands.png' width='16' height='16' /></label> <span id='span_checkbox_Netherlands'><label for='checkbox_Netherlands'>Netherlands</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Ottomans'><input id='checkbox_Ottomans' type='checkbox' name='allowed_civs[]' style='display:none' value='Ottomans' onclick=updateStrikeout('Ottomans') checked='true'><label for='checkbox_Ottomans'><img src='http://www.georgeskleres.com/civ5/img/Ottomans.png' width='16' height='16' /></label> <span id='span_checkbox_Ottomans'><label for='checkbox_Ottomans'>Ottomans</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Persia'><input id='checkbox_Persia' type='checkbox' name='allowed_civs[]' style='display:none' value='Persia' onclick=updateStrikeout('Persia') checked='true'><label for='checkbox_Persia'><img src='http://www.georgeskleres.com/civ5/img/Persia.png' width='16' height='16' /></label> <span id='span_checkbox_Persia'><label for='checkbox_Persia'>Persia</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Poland'><input id='checkbox_Poland' type='checkbox' name='allowed_civs[]' style='display:none' value='Poland' onclick=updateStrikeout('Poland') checked='true'><label for='checkbox_Poland'><img src='http://www.georgeskleres.com/civ5/img/Poland.png' width='16' height='16' /></label> <span id='span_checkbox_Poland'><label for='checkbox_Poland'>Poland</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Polynesia'><input id='checkbox_Polynesia' type='checkbox' name='allowed_civs[]' style='display:none' value='Polynesia' onclick=updateStrikeout('Polynesia') checked='true'><label for='checkbox_Polynesia'><img src='http://www.georgeskleres.com/civ5/img/Polynesia.png' width='16' height='16' /></label> <span id='span_checkbox_Polynesia'><label for='checkbox_Polynesia'>Polynesia</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Portugal'><input id='checkbox_Portugal' type='checkbox' name='allowed_civs[]' style='display:none' value='Portugal' onclick=updateStrikeout('Portugal') checked='true'><label for='checkbox_Portugal'><img src='http://www.georgeskleres.com/civ5/img/Portugal.png' width='16' height='16' /></label> <span id='span_checkbox_Portugal'><label for='checkbox_Portugal'>Portugal</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Rome'><input id='checkbox_Rome' type='checkbox' name='allowed_civs[]' style='display:none' value='Rome' onclick=updateStrikeout('Rome') checked='true'><label for='checkbox_Rome'><img src='http://www.georgeskleres.com/civ5/img/Rome.png' width='16' height='16' /></label> <span id='span_checkbox_Rome'><label for='checkbox_Rome'>Rome</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Russia'><input id='checkbox_Russia' type='checkbox' name='allowed_civs[]' style='display:none' value='Russia' onclick=updateStrikeout('Russia') checked='true'><label for='checkbox_Russia'><img src='http://www.georgeskleres.com/civ5/img/Russia.png' width='16' height='16' /></label> <span id='span_checkbox_Russia'><label for='checkbox_Russia'>Russia</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Shoshone'><input id='checkbox_Shoshone' type='checkbox' name='allowed_civs[]' style='display:none' value='Shoshone' onclick=updateStrikeout('Shoshone') checked='true'><label for='checkbox_Shoshone'><img src='http://www.georgeskleres.com/civ5/img/Shoshone.png' width='16' height='16' /></label> <span id='span_checkbox_Shoshone'><label for='checkbox_Shoshone'>Shoshone</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Siam'><input id='checkbox_Siam' type='checkbox' name='allowed_civs[]' style='display:none' value='Siam' onclick=updateStrikeout('Siam') checked='true'><label for='checkbox_Siam'><img src='http://www.georgeskleres.com/civ5/img/Siam.png' width='16' height='16' /></label> <span id='span_checkbox_Siam'><label for='checkbox_Siam'>Siam</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Songhai'><input id='checkbox_Songhai' type='checkbox' name='allowed_civs[]' style='display:none' value='Songhai' onclick=updateStrikeout('Songhai') checked='true'><label for='checkbox_Songhai'><img src='http://www.georgeskleres.com/civ5/img/Songhai.png' width='16' height='16' /></label> <span id='span_checkbox_Songhai'><label for='checkbox_Songhai'>Songhai</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Spain'><input id='checkbox_Spain' type='checkbox' name='allowed_civs[]' style='display:none' value='Spain' onclick=updateStrikeout('Spain') checked='true'><label for='checkbox_Spain'><img src='http://www.georgeskleres.com/civ5/img/Spain.png' width='16' height='16' /></label> <span id='span_checkbox_Spain'><label for='checkbox_Spain'>Spain</label></span></td>
+      </tr>
+      <tr>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Sweden'><input id='checkbox_Sweden' type='checkbox' name='allowed_civs[]' style='display:none' value='Sweden' onclick=updateStrikeout('Sweden') checked='true'><label for='checkbox_Sweden'><img src='http://www.georgeskleres.com/civ5/img/Sweden.png' width='16' height='16' /></label> <span id='span_checkbox_Sweden'><label for='checkbox_Sweden'>Sweden</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Venice'><input id='checkbox_Venice' type='checkbox' name='allowed_civs[]' style='display:none' value='Venice' onclick=updateStrikeout('Venice')><label for='checkbox_Venice'><img src='http://www.georgeskleres.com/civ5/img/Venice.png' width='16' height='16' /></label> <span id='span_checkbox_Venice'><label for='checkbox_Venice'>Venice</label></span></td>
+         <td valign='middle' bgColor='#FFFFFF' id='table_cell_Zulu'><input id='checkbox_Zulu' type='checkbox' name='allowed_civs[]' style='display:none' value='Zulu' onclick=updateStrikeout('Zulu') checked='true'><label for='checkbox_Zulu'><img src='http://www.georgeskleres.com/civ5/img/Zulu.png' width='16' height='16' /></label> <span id='span_checkbox_Zulu'><label for='checkbox_Zulu'>Zulu</label></span></td>
+         <td align='right' colspan='2'>
+            <table frame='box'>
+               <tr>
+                  <td bgColor='#DDDDDD' id='table_cell_allowDuplicateCivs'><input id='checkbox_allowDuplicateCivs' type='checkbox' name='allow_duplicate_civs' value='allowDuplicateCivs'><span id='span_checkbox_allowDuplicateCivs'><label for='checkbox_allowDuplicateCivs'>Allow Duplicate Civs</label></span></td>
+               </tr>
+            </table>
+         </td>
+      </tr>
+   </table>
+   <br>
+   <input type="submit" value="Create Game" />
+</form>
+</center>
+</html>

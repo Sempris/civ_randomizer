@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Random Nations Pick for Civilization V</title>
+		<link rel="stylesheet" href="randomizer.css"/>
+		<script type="text/javascript" src="randomizer.js"></script>
+	</head>
+	<body>
+		<div id="randomizer">
+			<h1 class="text-center">Random Nations Pick for Civilization V</h1>
+			<center>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
+				<ins class="adsbygoogle"
+			         style="display:inline-block;width:728px;height:90px"
+			         data-ad-client="ca-pub-8973224963834416"
+			         data-ad-slot="1468273740"/>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</center>
+			<div id="log"></div>
+			<ul id="results"></ul>
+			<form name="randomizer">
+				<div class="form-group">
+					<label>
+						<span>Number of players:</span>
+						<select name="players_num">
+							<option value="1">1 player</option>
+							<option value="2">2 players</option>
+							<option value="3">3 players</option>
+							<option value="4">4 players</option>
+							<option value="5">5 players</option>
+							<option value="6" selected="selected">6 players</option>
+							<option value="7">7 players</option>
+							<option value="8">8 players</option>
+							<option value="9">9 players</option>
+							<option value="10">10 players</option>
+							<option value="11">11 players</option>
+							<option value="12">12 players</option>
+						</select>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<span>Number of nations:</span>
+						<select name="civs_num">
+							<option value="1">1 nation</option>
+							<option value="2">2 nations</option>
+							<option value="3" selected="selected">3 nations</option>
+							<option value="4">4 nations</option>
+							<option value="5">5 nations</option>
+							<option value="6">6 nations</option>
+							<option value="7">7 nations</option>
+							<option value="8">8 nations</option>
+							<option value="9">9 nations</option>
+							<option value="10">10 nations</option>
+						</select>
+					</label>
+				</div>
+				<div class="form-group">
+					<span>Quick bans:</span>
+					<button type="button" data-ban="standard">Standard</button>
+					<button type="button" data-ban="none">Clear bans</button>
+					<button type="button" data-ban="inverse">Invert</button>
+				</div>
+				<ul>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Austria" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/1_Austria.png" height="40" width="40"/>
+							<span>Austria</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="America" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/2_America.png" height="40" width="40"/>
+							<span>America</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="England" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/3_England.png" height="40" width="40"/>
+							<span>England</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Arabia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/4_Arabia.png" height="40" width="40"/>
+							<span>Arabia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Assiria" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/5_Assiria.png" height="40" width="40"/>
+							<span>Assiria</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Aztec" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/6_Aztec.png" height="40" width="40"/>
+							<span>Aztec</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Brazil" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/7_Brazil.png" height="40" width="40"/>
+							<span>Brazil</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Babylon" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/8_Babylon.png" height="40" width="40"/>
+							<span>Babylon</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Venice" data-standard="false" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/9_Venice.png" height="40" width="40"/>
+							<span>Venice</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Byzantium" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/10_Byzantium.png" height="40" width="40"/>
+							<span>Byzantium</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Germany" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/11_Germany.png" height="40" width="40"/>
+							<span>Germany</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Holland" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/29_Holland.png" height="40" width="40"/>
+							<span>Holland</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Greece" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/12_Greece.png" height="40" width="40"/>
+							<span>Greece</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Hunns" checked="true" data-standard="false"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/13_Hunns.png" height="40" width="40"/>
+							<span>Hunns</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Denmark" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/14_Denmark.png" height="40" width="40"/>
+							<span>Denmark</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Egypt" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/15_Egypt.png" height="40" width="40"/>
+							<span>Egypt</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Zulu" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/16_Zulu.png" height="40" width="40"/>
+							<span>Zulu</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="India" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/17_India.png" height="40" width="40"/>
+							<span>India</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Indonesia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/18_Indonesia.png" height="40" width="40"/>
+							<span>Indonesia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Inca" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/19_Inca.png" height="40" width="40"/>
+							<span>Inca</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Iroquos" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/20_Iroquos.png" height="40" width="40"/>
+							<span>Iroquos</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Spain" checked="true" data-standard="false"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/21_Spain.png" height="40" width="40"/>
+							<span>Spain</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Carthage" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/22_Carthage.png" height="40" width="40"/>
+							<span>Carthage</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Celts" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/23_Celts.png" height="40" width="40"/>
+							<span>Celts</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="China" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/24_China.png" height="40" width="40"/>
+							<span>China</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Korea" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/25_Korea.png" height="40" width="40"/>
+							<span>Korea</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Maya" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/26_Maya.png" height="40" width="40"/>
+							<span>Maya</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Morocco" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/27_Morocco.png" height="40" width="40"/>
+							<span>Morocco</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Mongolia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/28_Mongolia.png" height="40" width="40"/>
+							<span>Mongolia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Persia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/30_Persia.png" height="40" width="40"/>
+							<span>Persia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Polynesia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/31_Polynesia.png" height="40" width="40"/>
+							<span>Polynesia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Poland" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/32_Poland.png" height="40" width="40"/>
+							<span>Poland</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Portugal" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/33_Portugal.png" height="40" width="40"/>
+							<span>Portugal</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Rome" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/34_Rome.png" height="40" width="40"/>
+							<span>Rome</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Russia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/35_Russia.png" height="40" width="40"/>
+							<span>Russia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Siam" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/36_Siam.png" height="40" width="40"/>
+							<span>Siam</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Songhai" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/37_Songhai.png" height="40" width="40"/>
+							<span>Songhai</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Turkey" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/38_Turkey.png" height="40" width="40"/>
+							<span>Turkey</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="France" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/39_France.png" height="40" width="40"/>
+							<span>France</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Sweden" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/40_Sweden.png" height="40" width="40"/>
+							<span>Sweden</span>
+						</label>
+					</li>
+					<li>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Shoshone" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/41_Shoshone.png" height="40" width="40"/>
+							<span>Shoshone</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Efiopia" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/42_Efiopia.png" height="40" width="40"/>
+							<span>Efiopia</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="allowed_civs[]" value="Japan" checked="true"/>
+							<img src="http://sempris.od.ua/wp-content/civ_images/43_Japan.png" height="40" width="40"/>
+							<span>Japan</span>
+						</label>
+					</li>
+				</ul>
+				<div class="form-group">
+					<label>
+						<h4 class="text-center">Allow duplicate Civs
+							<input type="checkbox" name="allow_duplicate_civs"/>
+						</h4>
+					</label>
+				</div>
+				<div class="text-center">
+					<button type="submit">
+						<font size="4">
+							<b>Create Game</b>
+						</font>
+					</button>
+				</div>
+				<div class="text-center">
+					<br/>
+					<br/>
+					<p>
+						<a href="http://steamcommunity.com/groups/civ5freegame" target="_blank">
+							<img src="Steam-logo.png" title="группа Steam" alt="группа Steam" width="50" height="50"/>
+						</a>
+						<font size="3"> &ndash; Steam Group for Civilization V players</font>
+					</p>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
