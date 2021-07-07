@@ -4,7 +4,7 @@ This randomizer was created for my [Steam Community](https://steamcommunity.com/
 
 ## Purpose
 
-The randomizer lets users to pick random nations within the pull of Civilization V computer game.
+The randomizer lets users pick random nations within the pull of the Civilization V computer game.
 
 ## Features
 
