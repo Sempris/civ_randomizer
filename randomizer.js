@@ -1,9 +1,9 @@
 ﻿/**
- * Создаёт новую игру
+ * Create a new game
  * @constructor
- * @param {Object[]} civs - все существующие цивилизации
- * @param {number} playersNumber - количество игроков
- * @param {number} civsNumber - количество цивилизаций на выбор игроку
+ * @param {Object[]} civs - all existing civs
+ * @param {number} playersNumber - player number
+ * @param {number} civsNumber - number of civs to choose from
  */
 function Game (civs, playersNumber, civsNumber) {
 	this.playersNumber = playersNumber;
@@ -91,10 +91,10 @@ window.onload = function () {
 			var error = e;
 		}
 		if (this.password && this.password.value) {
-			// Выполнить расчёт, сохранить в БД
+			// Make calculation, save to database
 		}
 		else {
-			// Отобразить расчёт без перезагрузки страницы
+			// Display results without page refresh
 			e.preventDefault();
 			render(output, error);
 		}
@@ -102,9 +102,8 @@ window.onload = function () {
 }
 
 /**
- * Проходит по всем цивилизациям и возвращает каждую из них в виде объекта с именем и состоянием
- * Через параметр callback может быть передана функция,
- * которая будет вызвана для каждой цивилизации и получит соответствующий ей input
+ * Goes through all civs and returns each of them in form of an object with a name an a status
+ * Through callback parameter the function could be called for each civ and gets the corresponding input
  * @param {Function} [callback]
  */
 function mapCivs (callback) {
@@ -121,9 +120,9 @@ function mapCivs (callback) {
 }
 
 /**
- * Отображает результат вычислений в документе
- * @param {Object[]} [output] - распределение цивилизаций между игроками
- * @param {string} [error] - текст ошибки
+ * Show the calculation result in the document
+ * @param {Object[]} [output] - assigns civs for players
+ * @param {string} [error] - error text
  */
 function render (output, error) {
 	var results = document.getElementById('results'),
